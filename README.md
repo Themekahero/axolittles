@@ -21,6 +21,8 @@ npm run dev       # dev server → http://localhost:5173
 npm run build     # production build → dist/
 npm run preview   # serve the production build locally
 npm run lint      # eslint
+npm test          # Vitest — unit tests on the learn content (see Tests & types)
+npm run typecheck # tsc --noEmit — type-check the .ts/.tsx files
 ```
 
 > **Running locally is fully functional.** Two things are served from the live
@@ -153,6 +155,20 @@ collides with the static `/games/` dir.
 - **The arcade is one file.** All `/games` mini-games live in
   `public/games/axo-arcade/index.html` (vanilla JS).
 - **Axo-Ninja streams art from a CDN** at runtime, so `/adventure` needs internet.
+
+## Tests & types
+
+- **`npm test`** runs [Vitest](https://vitest.dev). The current suite (`src/learn/__tests__/`)
+  guards the learn *content*, which is the easiest thing to break by hand:
+  unique world/lesson slugs, every lesson has a word + spoken line, the
+  `worldMap` matches the worlds array, sticker rules point at real worlds, and —
+  the important one — **every Challenge world has exactly one riddle per lesson**
+  (add a lesson without writing its clue and the test fails loudly). It also
+  sanity-checks the difficulty profiles and `findUnlockThreshold`.
+- **`npm run typecheck`** runs `tsc --noEmit`. The app is still JS/JSX; TypeScript
+  is set up with `allowJs` + `checkJs:false`, so new `.ts`/`.tsx` files are
+  type-checked while the existing tree is left alone. **Convert files to TS
+  incrementally** — rename a `.jsx` to `.tsx`, fix the types it surfaces, done.
 
 ## Known follow-ups
 

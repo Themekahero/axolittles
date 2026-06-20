@@ -1,0 +1,26 @@
+/* ── Legacy storefront layout shim ───────────────────────────────────────────
+   The storefront markup (Footer, ShopPage, Section2, FAQs) still leans on a
+   handful of Bootstrap layout classes. These rules reproduce exactly what
+   Bootstrap 5.3 gave those classes, so we could drop the ~230 KB Bootstrap CDN
+   (CSS + JS) entirely — see index.html. jQuery and Slick were unused and were
+   removed too. If you ever refactor the storefront to its own class names, this
+   file can go away.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* .container / .container-fluid — centered, gutter-padded wrappers. The
+   max-width breakpoints mirror Bootstrap's defaults so widths are unchanged. */
+.container,
+.container-fluid {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+}
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* Spacing utilities still referenced in the storefront markup. */
+.pb-5 { padding-bottom: 3rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }

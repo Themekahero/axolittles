@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+
+    /* The codebase is JS/JSX today. allowJs lets new .ts/.tsx files coexist and
+       import the existing modules; checkJs:false means we type-check the new
+       TypeScript without forcing the whole tree to be typed at once. Convert
+       files to .ts/.tsx incrementally. */
+    "allowJs": true,
+    "checkJs": false,
+
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force"
+  },
+  "include": ["src", "vite.config.js"]
+}
