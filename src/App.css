@@ -1,0 +1,1347 @@
+.audio-control {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  /* min-width: 166px; */
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid rgb(12 54 82 / 23%);
+  border-radius: 999px;
+  background: rgb(255, 255, 255);
+  color: var(--brand-ink);
+  box-shadow: 0 16px 34px rgba(3, 31, 57, 0.18);
+  font-family: var(--brand-font-body);
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+@font-face {
+  font-family: "Anton";
+  src: url("/fonts/Anton/Anton-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.audio-control:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(3, 31, 57, 0.22);
+}
+
+/* On immersive pages (learn / games / adventure / rhymes / parents) the control
+   becomes a small round play/pause button, raised above the bottom nav bars. */
+.audio-control--immersive {
+  bottom: 5.75rem;
+  right: 1rem;
+  gap: 0;
+  padding: 0;
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+}
+.audio-control--immersive .audio-control__art,
+.audio-control--immersive .audio-control__divider,
+.audio-control--immersive .audio-control__label {
+  display: none;
+}
+@media (max-width: 640px) {
+  .audio-control--immersive { bottom: 6.5rem; }
+}
+
+.audio-control__art {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid rgb(214 193 228);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+.view-full-collection-p {
+  color: var(--brand-ink);
+
+  font-family: var(--brand-font-body);
+}
+.view-full-collection-p a {
+  color: var(--brand-sky-deep);
+  text-decoration: none;
+  font-family: var(--brand-font-body);
+  font-size: 22px;
+}
+
+.audio-control__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.audio-control__divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(17, 51, 79, 0.28);
+}
+
+.audio-control__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+}
+
+.audio-control__play-icon {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid var(--brand-ink);
+  margin-left: 4px;
+}
+
+.audio-control__equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 24px;
+}
+
+.audio-control__equalizer span {
+  width: 3px;
+  border-radius: 999px;
+  background: var(--brand-sky-deep);
+  animation: audio-control-bounce 900ms ease-in-out infinite;
+}
+
+.audio-control__equalizer span:nth-child(1) {
+  height: 10px;
+}
+
+.audio-control__equalizer span:nth-child(2) {
+  height: 20px;
+  animation-delay: 120ms;
+}
+
+.audio-control__equalizer span:nth-child(3) {
+  height: 14px;
+  animation-delay: 240ms;
+}
+
+.audio-control__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.audio-control.is-playing {
+  background: rgb(255, 255, 255);
+}
+
+.audio-control.is-playing .audio-control__art {
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.55),
+    0 0 0 6px rgba(83, 211, 139, 0.18);
+}
+
+.contact-page__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-story-link__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.75fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.35rem, 2vw, 2rem);
+  border: 1px solid rgba(83, 146, 197, 0.18);
+  border-radius: 32px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.78),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #f6fcff 0%, #e8f7ff 46%, #fdf2c8 100%);
+  box-shadow: 0 24px 52px rgba(10, 47, 82, 0.1);
+}
+
+.about-story-link__copy h2 {
+  margin: 0;
+  color: var(--brand-ink);
+  font-family: var(--brand-font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-story-link__copy p {
+  margin: 1rem 0 0;
+  color: var(--brand-ink-soft);
+  font-family: var(--brand-font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 700;
+}
+
+.about-story-link__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-end;
+}
+
+.about-story-link__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(17, 73, 118, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--brand-sky-deep);
+  font-family: var(--brand-font-body);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.contact-page__shell {
+  width: min(1320px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.contact-page__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 2rem;
+  padding: clamp(1.4rem, 2vw, 2rem);
+  border: 1px solid rgba(81, 132, 188, 0.22);
+  border-radius: 34px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.55),
+      transparent 30%
+    ),
+    linear-gradient(180deg, #e4f8ff 0%, #d8f2ff 100%);
+  box-shadow:
+    0 24px 55px rgba(10, 47, 82, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  overflow: hidden;
+}
+
+.contact-page__panel::before,
+.contact-page__panel::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-page__panel::before {
+  top: -110px;
+  left: -90px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22),
+    transparent 68%
+  );
+}
+
+.contact-page__panel::after {
+  right: -45px;
+  bottom: -70px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 0 0 20px rgba(255, 255, 255, 0.06),
+    0 0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+.contact-page__panel-copy,
+.contact-page__form-card {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-page__panel-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 2vw, 1.8rem);
+  color: var(--brand-ink);
+}
+
+.contact-page__kicker {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(25, 83, 124, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand-sky-deep);
+  font-family: var(--brand-font-body);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-page__panel-copy h3 {
+  margin: 0;
+  color: var(--brand-pink);
+  font-family: var(--brand-font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  -webkit-text-stroke: 0;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.6);
+}
+
+.contact-page__panel-text {
+  max-width: 31rem;
+  margin: 1rem 0 0;
+  color: var(--brand-ink-soft);
+  font-family: var(--brand-font-body);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.contact-page__detail-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.7rem;
+}
+
+.contact-page__detail-row {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(19, 73, 113, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  overflow-wrap: anywhere;
+}
+
+.contact-page__detail-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  background: rgba(56, 189, 248, 0.18);
+  color: var(--brand-sky-deep);
+  font-size: 1rem;
+}
+
+.contact-page__detail-row strong,
+.contact-page__detail-row span {
+  display: block;
+  font-family: var(--brand-font-body);
+}
+
+.contact-page__detail-row strong {
+  color: var(--brand-sky-deep);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.contact-page__detail-row span {
+  margin-top: 0.18rem;
+  color: var(--brand-ink-soft);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-page__detail-row div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.contact-page__form-card {
+  padding: clamp(1.35rem, 2vw, 2rem);
+  border: 1px solid rgba(17, 51, 79, 0.12);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(154, 193, 255, 0.28),
+      transparent 24%
+    ),
+    rgba(255, 252, 250, 0.96);
+  box-shadow:
+    0 18px 38px rgba(13, 39, 66, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.contact-page__form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact-page__form-head p {
+  margin: 0;
+  color: var(--brand-ink-soft);
+  font-family: var(--brand-font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.contact-page__form-head h4 {
+  margin: 0.25rem 0 0;
+  color: var(--brand-ink);
+  font-family: var(--brand-font-display);
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  font-weight: 800;
+}
+
+.contact-page__form-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(170, 208, 255, 0.24);
+  color: var(--brand-sky-deep);
+  font-family: var(--brand-font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.contact-page__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  gap: 1rem;
+}
+
+.contact-page__field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contact-page__field span {
+  color: var(--brand-ink);
+  font-family: var(--brand-font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.contact-page__field input,
+.contact-page__field textarea {
+  width: 100%;
+  border: 1px solid rgba(24, 69, 108, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--brand-ink);
+  font-family: var(--brand-font-body);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.5;
+  box-shadow:
+    0 8px 18px rgba(17, 51, 79, 0.07),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.74);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-page__field input {
+  min-height: 50px;
+  padding: 0.85rem 1rem;
+}
+
+.contact-page__field textarea {
+  min-height: 172px;
+  padding: 0.95rem 1rem;
+  resize: vertical;
+}
+
+.contact-page__field input::placeholder,
+.contact-page__field textarea::placeholder {
+  color: rgba(39, 79, 118, 0.55);
+}
+
+.contact-page__field input:focus,
+.contact-page__field textarea:focus {
+  outline: none;
+  border-color: rgba(72, 131, 197, 0.6);
+  box-shadow:
+    0 0 0 4px rgba(121, 181, 242, 0.18),
+    0 12px 22px rgba(17, 51, 79, 0.08);
+  transform: translateY(-1px);
+}
+
+.contact-page__field--full {
+  grid-column: 1 / -1;
+}
+
+.contact-page__submit {
+  justify-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+@keyframes audio-control-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scaleY(1.12);
+    opacity: 1;
+  }
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.parallax-surface {
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+}
+
+.parallax-surface [data-parallax-depth] {
+  will-change: transform;
+  transition: transform 220ms ease-out;
+  transform: translate3d(
+    calc(var(--parallax-x) * var(--depth, 1) / 20),
+    calc(var(--parallax-y) * var(--depth, 1) / 20),
+    0
+  );
+}
+
+.cursor-dot,
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1200;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+  transform: translate3d(-100px, -100px, 0);
+}
+
+.cursor-dot {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  border-radius: 999px;
+  background: var(--brand-sky-deep);
+  box-shadow: 0 0 18px rgba(29, 143, 209, 0.42);
+}
+
+.cursor-glow {
+  width: 130px;
+  height: 130px;
+  margin-left: -65px;
+  margin-top: -65px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(79, 205, 255, 0.22) 0%,
+    rgba(79, 205, 255, 0.14) 28%,
+    rgba(79, 205, 255, 0.06) 52%,
+    rgba(79, 205, 255, 0) 74%
+  );
+  mix-blend-mode: screen;
+}
+
+.cursor-dot.is-visible,
+.cursor-glow.is-visible {
+  opacity: 1;
+}
+
+.cursor-dot.is-hovering-action {
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+  background: var(--brand-sun);
+  box-shadow: 0 0 22px rgba(255, 210, 63, 0.55);
+}
+
+.cursor-glow.is-hovering-action {
+  width: 170px;
+  height: 170px;
+  margin-left: -85px;
+  margin-top: -85px;
+  background: radial-gradient(
+    circle,
+    rgba(245, 207, 136, 0.22) 0%,
+    rgba(245, 207, 136, 0.12) 35%,
+    rgba(245, 207, 136, 0.04) 58%,
+    rgba(245, 207, 136, 0) 78%
+  );
+}
+
+@media (max-width: 550px) {
+  .parallax-surface [data-parallax-depth] {
+    transform: none;
+  }
+
+  .audio-control {
+    right: 0.8rem;
+    bottom: 0.8rem;
+    min-width: auto;
+    padding: 0.52rem 0.6rem;
+    gap: 0.55rem;
+  }
+
+  .audio-control__divider {
+    display: none;
+  }
+
+  .audio-control__art {
+    width: 40px;
+    height: 40px;
+  }
+
+  .audio-control__action {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navbar-brand {
+    width: 70%;
+  }
+  .navbar:after {
+    bottom: -16px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .nav-link {
+    width: max-content;
+    margin: auto;
+  }
+
+  .contact-page__grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-page__panel {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 28px;
+  }
+  .contact-page__panel-copy,
+  .contact-page__form-card {
+    padding: 1rem;
+  }
+  .contact-page__panel-copy h3 {
+    font-size: clamp(2.2rem, 14vw, 3.35rem);
+  }
+  .contact-page__form-head {
+    flex-direction: column;
+  }
+  .contact-page__form {
+    grid-template-columns: 1fr;
+  }
+  .contact-page__field--full {
+    grid-column: auto;
+  }
+  section.hero {
+    overflow: hidden;
+    position: static;
+  }
+  #cloudBackground {
+    right: 0;
+  }
+  .nft-collections-img {
+    /* height: 360px; */
+    margin-top: 0;
+    margin: 0 30px 0 30px !important;
+  }
+  .nft-collections-img img {
+    border-radius: 25px;
+  }
+  .about-nft-collection {
+    padding: 4rem 0 5rem 0 !important;
+  }
+  .full-collections-nft p {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+  .axolittle-banner-content {
+    /* width: min(560px, calc(100% - 2rem)); */
+    padding: 7.5rem 0 1.5rem;
+    left: 5% !important;
+    transform: translateX(-50%);
+    top: 0;
+  }
+  section.roadmap .timeline .phase {
+    display: block !important;
+  }
+  .planetono-main {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .navbar-brand img {
+    width: 80% !important;
+  }
+  .about-nft-row img {
+    width: 10rem !important;
+    border-radius: 14px;
+  }
+  .about-intro-div h2,
+  .newsletter h2,
+  .about-nft-collection h2,
+  .nft-collections-collections h2,
+  .full-collections-nft h2,
+  .roadmap-intro h2,
+  section.roadmap h2,
+  .roadmap-journey__intro h2,
+  .site-footer__brand h2,
+  .featured-merch__title,
+  .team-section__title,
+  .roadmap-quarters__intro h2,
+  .faq h2 {
+    font-size: 22px;
+  }
+
+  .about-intro-div h2 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+  }
+  .axo-button-cont {
+    padding: 0.4em 1em;
+    border-radius: 6px;
+  }
+  .nft-collections-imgs img {
+    width: 25%;
+  }
+  .faq h2 {
+    width: 100%;
+  }
+  .axo-button-cont a {
+    font-size: small;
+  }
+  .about-intro-div {
+    width: min(680px, 92%);
+    padding: 0 0 1.25rem !important;
+    text-align: left;
+  }
+  .about-intro-div p,
+  .nft-collections-collections p {
+    font-size: 0.98rem !important;
+    margin-top: 0;
+    line-height: 1.65;
+  }
+  .cloud-1 {
+    top: 20%;
+  }
+  .cloud-1,
+  .cloud-2,
+  .cloud-4 {
+    display: none;
+  }
+  .nft-collections-collections p {
+    margin-bottom: 20px;
+  }
+  .left-rightbtn {
+    gap: 15px;
+  }
+  .left-rightbtn button {
+    padding: 4px 14px;
+
+    font-size: 20px;
+  }
+  .nft-collections-img img.next {
+    margin-left: 4em;
+    height: 300px;
+  }
+  .nft-collections-imgs {
+    margin-top: 0 !important;
+  }
+  section.roadmap .timeline .phase .status {
+    margin: 0 0 !important;
+  }
+  section.roadmap .timeline:after {
+    bottom: none !important;
+    content: none !important;
+  }
+  section.roadmap .timeline::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 2% !important;
+  }
+  .about-nft-collection {
+    padding: 60px 0;
+  }
+  section.roadmap .timeline .phase .phase-content {
+    margin-left: -32% !important;
+    margin-top: -18% !important;
+    border-radius: 0 !important;
+  }
+  section.roadmap .timeline .phase .status {
+    margin-left: -15% !important;
+    width: 9px !important;
+    margin-top: 10% !important;
+  }
+  section.roadmap .timeline .phase .phase-head {
+    -webkit-transform: translateX(0px) !important;
+    transform: translateX(0px) !important;
+    text-align: left !important;
+    margin-bottom: -1rem !important;
+  }
+  .phase-head p {
+    margin-bottom: 0 !important;
+    font-size: 16px !important;
+  }
+  section.roadmap .legend .item {
+    padding: 5px 20px 5px 10px !important;
+  }
+  section.roadmap .legend .item:after {
+    width: 6px !important;
+    height: 30px !important;
+  }
+  .faq .accordion-button {
+    font-size: 16px !important;
+    border-radius: 8px !important;
+  }
+  section.roadmap h1,
+  section.roadmap h3,
+  section.roadmap h4,
+  section.roadmap h5 {
+    font-size: 18px !important;
+  }
+  .site-footer .footer-top .footer-logo {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cloud-4 {
+    bottom: 26%;
+    right: 5%;
+  }
+  .site-footer .footer-top {
+    display: block;
+  }
+  .lower-foot {
+    margin-top: 0;
+  }
+  .accordion {
+    margin-bottom: 0;
+    margin-top: 1.4rem;
+  }
+  .site-footer .footer-top .footer-logo img {
+    width: 160px;
+    margin-bottom: 1rem;
+  }
+  .accordion-body {
+    width: 94%;
+    font-size: 15px !important;
+  }
+  .faq {
+    padding: 55px 0 0 0;
+  }
+  .faq .accordion-button::after {
+    margin-top: -1.4rem;
+  }
+  .site-footer .footer-bot .footer-legal {
+    padding: 0.2em;
+    font-size: 10px;
+  }
+  .faq .accordion-body {
+    padding: 10px 0 0 0 !important;
+  }
+  .site-footer .footer-top .newsletter .cf7-fields {
+    display: block;
+  }
+  .nft-collections-img img {
+    width: 90%;
+  }
+  .nft-collections-imgs img {
+    width: 32%;
+  }
+  .planetono-style {
+    padding: 1.3rem 0 2.5rem;
+  }
+  .planetono-top {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+  }
+  .planetono-top a {
+    font-size: 1rem;
+  }
+  .planetono-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .planetono-burst {
+    width: 200px;
+    height: 200px;
+  }
+  .planetono-kicker {
+    font-size: 1.2rem;
+  }
+  .planetono-burst h3 {
+    font-size: 2.45rem;
+  }
+  .planetono-visual {
+    min-height: 310px;
+  }
+  .planetono-orbit {
+    width: 230px;
+    height: 280px;
+  }
+  .phase-content p,
+  .content-text p,
+  .nft-collections-collections p,
+  .about-intro-div p,
+  .planetono-copy-row p,
+  .faq .accordion-button,
+  .faq .accordion-body,
+  .view-full-collection-p a,
+  .footer-blizzard-right p,
+  .partners-showcase__card p,
+  .partners-showcase__copy,
+  .featured-merch__copy {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  .faq h2 {
+    width: 96% !important;
+  }
+  .roadmap-journey-stop__frame img {
+    object-fit: cover;
+  }
+  .planetono-tray {
+    width: 270px;
+    height: 185px;
+  }
+  .planetono-copy h2 {
+    font-size: clamp (2.5rem, 6vw, 7rem) !important;
+    text-align: center;
+  }
+  .planetono-copy h2 {
+    font-size: 2.5rem !important;
+  }
+  .planetono-copy-row {
+    grid-template-columns: 1fr;
+  }
+  .site-footer .footer-bot .footer-legal {
+    color: #000;
+  }
+  .planetono-copy-row p {
+    text-align: center;
+  }
+  .axo-littles-nft-block {
+    margin: 0 !important;
+  }
+  .planetono-controls {
+    justify-content: center;
+  }
+  .about-axolittles-para {
+    width: 90% !important;
+    font-size: 0.9rem !important;
+  }
+  .mt-sections-tp {
+    margin-top: -2rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-control,
+  .audio-control__equalizer span {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-surface [data-parallax-depth] {
+    transition: none;
+    transform: none;
+  }
+}
+@media (min-width: 550px) and (max-width: 990px) {
+  .hero-graphic {
+    /* margin-top: 3rem; */
+  }
+  .mt-sections-tp {
+    margin-top: -4rem;
+  }
+  .axolittle-banner-content {
+    width: 95% !important;
+  }
+  .axolittle-banner-contenth1 {
+    font-size: 2.3rem;
+    padding-top: 2rem;
+  }
+  .navbar:after {
+    bottom: -25px !important;
+  }
+  .axolittle-banner-contentp {
+    padding: 0px 0;
+    line-height: 1.5;
+    text-transform: capitalize;
+    font-size: 16px;
+  }
+  .axo-button-cont a {
+    font-size: 16px;
+  }
+  .axo-button-cont {
+    padding: 0.8em 1.5em;
+  }
+  .about-intro-div h2,
+  .newsletter h2,
+  .about-nft-collection h2,
+  .nft-collections-collections h2 {
+    font-size: 30px;
+  }
+  .about-intro-div p,
+  .nft-collections-collections p,
+  .phase-head p {
+    font-size: 16px;
+  }
+  .about-intro-div {
+    width: 90%;
+    padding-bottom: 4rem;
+  }
+  .cloud-1,
+  .cloud-2 {
+    width: 160px;
+  }
+  .cloud-3,
+  .cloud-4 {
+    width: 130px;
+  }
+  .left-rightbtn button {
+    padding: 6px 20px;
+    font-size: 18px;
+  }
+  .nft-collections-img img {
+    width: 98%;
+  }
+  .nft-collections-img img.next {
+    margin-left: 5em;
+  }
+  .navbar-brand {
+    width: 21rem;
+  }
+  section.roadmap .timeline .phase .status {
+    margin: 0px 0px !important;
+  }
+  .nft-collections-img {
+    height: 600px;
+  }
+  .nft-collections-imgs img {
+    width: 26%;
+  }
+  section.roadmap .timeline {
+    padding: 0px 4%;
+  }
+  section.roadmap .timeline .phase {
+    padding: 20px 0;
+  }
+  section.roadmap .timeline .phase {
+    align-items: flex-start;
+  }
+  section.roadmap .timeline .phase .phase-head {
+    -ms-flex: 0 0 calc(36% - 66px);
+    flex: 0 0 calc(36% - 66px);
+  }
+  section.roadmap .timeline .phase .phase-content {
+    -ms-flex: 0 0 calc(60% - 100px);
+    flex: 0 0 calc(60% - 100px);
+  }
+  section.roadmap .timeline::before {
+    content: "";
+    position: absolute;
+    left: 41%;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .nav-link {
+    width: max-content;
+    margin: auto;
+  }
+  section.roadmap .timeline:after {
+    bottom: none;
+    content: none;
+  }
+  .left-rightbtn {
+    gap: 10px;
+  }
+  .site-footer .footer-bot .footer-legal {
+    padding: 0 0 0.5em 0;
+  }
+  .site-footer .footer-top .footer-logo {
+    margin-bottom: 2rem;
+  }
+  .site-footer .footer-top .newsletter {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+  }
+  .faq .accordion-button,
+  .accordion-item:last-of-type > .accordion-header .accordion-button.collapsed,
+  .accordion-button:not(.collapsed) {
+    font-size: 20px;
+  }
+  .accordion-body {
+    font-size: 18px !important;
+  }
+  .lower-foot {
+    margin-top: -4rem;
+  }
+  .planetono-style {
+    padding: 2rem 0 3rem;
+  }
+  .planetono-top {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .planetono-top a {
+    font-size: 1.1rem;
+  }
+  .planetono-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .planetono-burst {
+    width: 220px;
+    height: 220px;
+  }
+  .planetono-visual {
+    min-height: 360px;
+  }
+  .planetono-orbit {
+    width: 290px;
+    height: 340px;
+  }
+  .planetono-tray {
+    width: 320px;
+    height: 220px;
+  }
+  .planetono-copy h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .planetono-copy-row p {
+    text-align: center;
+  }
+  .about-nft-row img {
+    width: 12rem !important;
+  }
+  .planetono-controls {
+    justify-content: flex-start;
+  }
+  .about-nft-collection {
+    padding: 0 0 !important;
+  }
+  .axo-littles-nft-block {
+    margin: 0 !important;
+  }
+  .about-axolittles-para {
+    width: 80% !important;
+  }
+  /* section.roadmap .timeline .phase .phase-head, */
+  /* section.roadmap .timeline .phase .phase-content {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(50% - 66px);
+    flex: 0 0 calc(50% - 66px);
+    text-align: right;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    -webkit-transform: translateX(-60px);
+    transform: translateX(-60px);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  } */
+}
+@media (min-width: 990px) and (max-width: 1100px) {
+  .axolittle-banner-content {
+    padding: 14% 1% 1% 3%;
+  }
+  .footer-blizzard {
+    min-height: 100% !important;
+  }
+  .partners-showcase__shell {
+    gap: 0;
+  }
+  .roadmap-journey-stop__card {
+    display: block !important;
+  }
+  .shop-hero {
+    min-height: 75vh !important;
+  }
+  .axo-littles-nft-block {
+    margin: 0 !important;
+  }
+  .navbar-brand {
+    width: 20rem;
+  }
+  .hero-graphic {
+    margin-top: 6rem;
+  }
+  .axolittle-banner-contenth1 {
+    font-size: 3rem;
+  }
+  .axolittle-banner-contentp {
+    line-height: 1.4;
+  }
+  .about-intro-div {
+    width: 80%;
+  }
+  .site-footer .footer-top {
+    padding: 12% 5% 1px 5%;
+  }
+}
+@media (min-width: 1025px) {
+  .nft-collections-img img.next {
+    margin-left: 9em;
+  }
+}
+@media (max-width: 350px) {
+  section.roadmap .timeline .phase .phase-content {
+    margin-left: -44%;
+  }
+  .about-intro-div {
+    padding-top: 200px;
+  }
+}
+@media (min-width: 1100px) {
+  .navbar-brand img {
+    width: 25%;
+  }
+}
+@media (max-width: 991px) {
+  .footer-blizzard {
+    min-height: 100% !important;
+    padding: 5rem 0 2rem !important;
+  }
+  .social-icons a {
+    font-size: small !important;
+  }
+  .faq {
+    padding: 50px 0 10px 0 !important;
+  }
+  .footer-blizzard-content {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    text-align: center;
+  }
+
+  .footer-blizzard-left h2 {
+    font-size: clamp(2.8rem, 14vw, 6rem);
+    -webkit-text-stroke: 0;
+    text-shadow: 0 3px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .footer-blizzard-right {
+    justify-self: start;
+    max-width: 100%;
+    margin-top: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 550px) and (max-width: 990px) {
+  .navbar-brand img {
+    width: 10rem !important;
+  }
+  section.roadmap {
+    margin-top: -1rem !important;
+  }
+  .planetono-main {
+    gap: 0.5rem !important;
+  }
+  .planetono-tray {
+    width: 320px !important;
+    height: 218px !important;
+  }
+  .planetono-orbit {
+    width: 300px !important;
+    height: 360px !important;
+  }
+  section.roadmap .timeline .phase {
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+}
+@media (max-width: 550px) {
+  .about-story-link__card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story-link__highlights {
+    justify-content: flex-start;
+  }
+
+  .faq .accordion-button {
+    padding: 16px 16px !important;
+    border-radius: 10px !important;
+  }
+  .accordion-body {
+    width: 85% !important;
+  }
+  .faq .accordion-body {
+    padding: 10px 0px 0 0px !important;
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXO NINJA</title>
+  <link rel="preconnect" href="https://ik.imagekit.io" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="icon" href="https://ik.imagekit.io/6rsuaxauw/Frame%20306.webp" type="image/webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="client/styles.css" />
+</head>
+
+<body>
+  <div id="rotate-overlay" class="rotate-overlay" aria-hidden="true">
+    <div class="rotate-overlay-inner">
+      <div class="rotate-overlay-icon"></div>
+      <p class="rotate-overlay-text">
+        Rotate your device to landscape to play
+      </p>
+    </div>
+  </div>
+  <div id="fullscreen-prompt" class="fullscreen-prompt" aria-hidden="true">
+    <p class="fullscreen-prompt-text">Tap to enter fullscreen</p>
+  </div>
+  <div id="game-shell">
+    <canvas id="gameCanvas" width="1280" height="720"></canvas>
+    <div id="uiRoot"></div>
+    <!-- UI -->
+  </div>
+  <script type="module" src="client/js/main.js"></script>
+</body>
+
+</html>

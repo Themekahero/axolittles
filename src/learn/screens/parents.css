@@ -1,0 +1,277 @@
+/* Parents Control dashboard styling — grown-up readable, on-brand (Fredoka, soft
+   pastel cards, indigo ink). Self-contained; scoped under .parents-control so it
+   never leaks. Normal document flow (scrollable), not the fixed stage. */
+
+.parents-control {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  background:
+    radial-gradient(1100px 380px at 50% -8%, #e7f7ff 0%, transparent 70%),
+    linear-gradient(180deg, #f3fbff 0%, #eef6ff 100%);
+  color: #3b2f5e;
+  font-family: "Fredoka", system-ui, sans-serif;
+  padding-bottom: 4rem;
+}
+.parents-control .axo-logo { width: 56px; height: 56px; }
+
+/* ── Parental gate ───────────────────────────────────────────────────────── */
+.parents-gate {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+.parents-gate-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 2.2rem 2rem 1.6rem;
+  box-shadow: 0 24px 60px rgba(42, 89, 116, 0.18);
+  text-align: center;
+}
+.parents-gate-logo { width: 84px !important; height: 84px !important; margin-bottom: 0.4rem; }
+.parents-gate-title { font-size: 1.9rem; font-weight: 700; margin: 0 0 0.4rem; color: #3b2f5e; }
+.parents-gate-sub { color: #6d5fa0; margin: 0 0 1.6rem; font-size: 1rem; line-height: 1.5; }
+.parents-gate-form { text-align: left; }
+.parents-gate-code {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  color: #2563eb;
+  background: #f0f6ff;
+  border: 2px dashed #c3d9f5;
+  border-radius: 16px;
+  padding: 0.7rem 0.9rem;
+  margin: 0 0 1rem;
+  user-select: none;
+}
+.parents-gate-label { display: block; font-weight: 600; margin-bottom: 0.6rem; font-size: 1.05rem; }
+.parents-gate-input-row { display: flex; gap: 0.6rem; align-items: stretch; }
+.parents-gate-input {
+  flex: 1;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.65rem 0.8rem;
+  border: 2px solid #d6e6f2;
+  border-radius: 16px;
+  color: #3b2f5e;
+  background: #f8fbff;
+}
+.parents-gate-input:focus { outline: none; border-color: #2563eb; }
+.parents-gate-input[aria-invalid="true"] { border-color: #ef4444; }
+.parents-control .parents-gate-go { padding: 0.65rem 1.4rem; font-size: 1.05rem; flex: 0 0 auto; }
+.parents-gate-error { color: #dc2626; font-size: 0.92rem; margin: 0.7rem 0 0; font-weight: 600; }
+.parents-gate-or { color: #9aa9c4; margin: 1.1rem 0 0.9rem; font-weight: 600; }
+/* Override the circular hold button from learn.css into a friendly pill */
+.parents-control .gate-hold-btn.parents-gate-hold {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 6px 0 #1d4ed8;
+  overflow: hidden;
+}
+.parents-control .parents-gate-hold .hold-ring {
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 5px;
+  width: calc(var(--hold, 0) * 1%);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  transition: width 40ms linear;
+}
+.parents-gate-cancel {
+  margin-top: 1rem;
+  color: #6d5fa0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ── Dashboard layout ────────────────────────────────────────────────────── */
+.parents-control .parents-page { width: 100%; }
+.parents-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(42, 89, 116, 0.1);
+}
+.parents-brand { display: flex; align-items: center; gap: 0.75rem; }
+.parents-logo { width: 44px !important; height: 44px !important; }
+.parents-title { font-size: 1.5rem; font-weight: 700; margin: 0; color: #173042; }
+.parents-control .parents-exit { padding: 0.6rem 1.25rem; font-size: 1rem; }
+
+.parents-main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(1.2rem, 3vw, 2.2rem) clamp(1rem, 4vw, 2rem) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+.parents-section {
+  background: #fff;
+  border-radius: 24px;
+  padding: 1.5rem clamp(1.1rem, 3vw, 1.8rem);
+  box-shadow: 0 14px 36px rgba(42, 89, 116, 0.1);
+}
+.parents-section-title { font-size: 1.3rem; font-weight: 700; margin: 0 0 0.3rem; color: #173042; }
+.parents-section-hint { color: #6d5fa0; font-size: 0.95rem; line-height: 1.55; margin: 0 0 1rem; }
+
+/* ── Stat grid ───────────────────────────────────────────────────────────── */
+.parents-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+.parents-control .parents-stats .stat-card {
+  position: static;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.2rem 0.8rem;
+  background: #f7fbff;
+  border: 2px solid #eaf2fb;
+  border-radius: 20px;
+  box-shadow: none;
+  text-align: center;
+}
+.parents-control .stat-ico {
+  width: 50px; height: 50px;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  background: var(--c, #38bdf8);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+.parents-control .stat-ico svg { width: 26px; height: 26px; }
+.parents-control .stat-num { font-size: 1.8rem; font-weight: 700; color: #173042; line-height: 1; }
+.parents-control .stat-label { font-size: 0.9rem; color: #6d5fa0; font-weight: 600; }
+
+/* ── Per-world progress ──────────────────────────────────────────────────── */
+.parents-worlds { display: flex; flex-direction: column; gap: 0.7rem; }
+.parents-control .set-prog-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 52px;
+  align-items: center;
+  gap: 0.9rem;
+}
+.parents-control .set-prog-name { font-weight: 600; font-size: 0.98rem; color: #3b2f5e; }
+.parents-control .set-prog-track {
+  height: 14px;
+  background: #eaf2fb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.parents-control .set-prog-fill { display: block; height: 100%; border-radius: 999px; transition: width 0.4s ease; }
+.parents-control .set-prog-count { font-weight: 700; font-size: 0.9rem; color: #6d5fa0; text-align: right; }
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+.parents-control-block { padding: 0.9rem 0; border-top: 1px solid #eef3f9; }
+.parents-control-block:first-child { border-top: none; padding-top: 0.3rem; }
+.parents-field-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #173042;
+  margin-bottom: 0.7rem;
+}
+.parents-field-value {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-weight: 600; color: #d97706; font-size: 1rem;
+}
+.parents-field-value svg { width: 22px; height: 22px; }
+.parents-slider { width: 100%; accent-color: #2563eb; height: 28px; cursor: pointer; }
+.parents-select {
+  font-family: inherit; font-size: 1rem; font-weight: 600; color: #3b2f5e;
+  padding: 0.6rem 0.9rem; border-radius: 14px; border: 2px solid #d6e6f2;
+  background: #f8fbff; min-width: 180px; cursor: pointer;
+}
+
+/* Voice picker */
+.parents-voices { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.parents-control .set-voice {
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  padding: 0.7rem 0.9rem; border-radius: 18px; background: #f7fbff;
+  border: 2px solid #eaf2fb; font-weight: 600; color: #3b2f5e; min-width: 84px;
+}
+.parents-control .set-voice.on { border-color: #fbbf24; background: #fffaf0; box-shadow: 0 4px 0 rgba(217,119,6,0.25); }
+
+/* Toggle rows */
+.parents-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 0.7rem 0;
+}
+.parents-toggle-row + .parents-toggle-row { border-top: 1px solid #f0f4f9; }
+.parents-toggle-text { display: flex; flex-direction: column; gap: 0.15rem; }
+.parents-toggle-label { font-weight: 600; color: #173042; font-size: 1rem; }
+.parents-toggle-note { color: #7b89a5; font-size: 0.85rem; line-height: 1.4; }
+.parents-control .set-toggle {
+  flex: 0 0 auto;
+  width: 56px; height: 32px; border-radius: 999px;
+  background: #cdd9e8; position: relative; transition: background 0.2s ease;
+}
+.parents-control .set-toggle.on { background: #22c55e; }
+.parents-control .set-toggle .knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 26px; height: 26px; border-radius: 50%; background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25); transition: left 0.2s ease;
+}
+.parents-control .set-toggle.on .knob { left: 27px; }
+
+/* Danger zone */
+.parents-danger { display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+.parents-danger-note { color: #7b5b5b; font-size: 0.92rem; margin: 0; }
+.parents-control .parent-reset {
+  padding: 0.7rem 1.4rem; border-radius: 14px;
+  background: #fee2e2; color: #b91c1c; font-weight: 700; font-size: 1rem;
+  border: 2px solid #fecaca;
+}
+.parents-control .parent-reset:hover { background: #fecaca; }
+
+/* Difficulty profile picker */
+.parents-difficulty { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.parents-control .parents-diff-card {
+  flex: 1 1 160px; min-width: 150px; text-align: left;
+  display: flex; flex-direction: column; gap: 0.2rem;
+  padding: 0.85rem 1rem; border-radius: 16px; background: #f7fbff;
+  border: 2px solid #eaf2fb; cursor: pointer;
+}
+.parents-control .parents-diff-card.on {
+  border-color: #2563eb; background: #eff6ff; box-shadow: 0 4px 0 rgba(37,99,235,0.2);
+}
+.parents-diff-name { font-weight: 800; font-size: 1.05rem; color: #173042; }
+.parents-diff-age { font-weight: 700; font-size: 0.85rem; color: #2563eb; }
+.parents-diff-note { font-weight: 500; font-size: 0.85rem; color: #5b6b7a; line-height: 1.25; }
+
+@media (max-width: 560px) {
+  .parents-control .set-prog-row { grid-template-columns: 110px 1fr 46px; gap: 0.5rem; }
+  .parents-title { font-size: 1.25rem; }
+}

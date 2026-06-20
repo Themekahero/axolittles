@@ -1,0 +1,39 @@
+.typing-heading {
+  position: relative;
+  display: inline-grid;
+}
+
+.typing-heading::before,
+.typing-heading__text {
+  grid-area: 1 / 1;
+}
+
+.typing-heading::before {
+  content: attr(data-text);
+  visibility: hidden;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+.typing-heading__text {
+  min-width: 0;
+}
+.about-page__title span {
+  line-height: 1;
+}
+.typing-heading.is-typing .typing-heading__text::after {
+  content: "";
+  display: inline-block;
+  width: 0.09em;
+  height: 0.9em;
+  margin-left: 0.14em;
+  vertical-align: -0.08em;
+  background: currentColor;
+  animation: typing-caret 0.8s steps(1) infinite;
+}
+
+@keyframes typing-caret {
+  50% {
+    opacity: 0;
+  }
+}

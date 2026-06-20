@@ -1,0 +1,18 @@
+{
+  "basePath": "/",
+  "items": [
+    { "type": "spikedSkull", "key": "spiked", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/voidlings/webp/Spiked_Skull_flying_x1rrlo.webp", "name": "spiked", "frameCount": 4, "fps": 7 },
+    { "type": "necromancer", "key": "grin", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/voidlings/webp/Grinning_Horn_walking_vdkau3.webp", "name": "grin", "frameCount": 5, "fps": 8 },
+    { "type": "golden", "key": "golden", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/voidlings/webp/Golden_spirit_walking_ycsgx8.webp", "name": "golden", "frameCount": 4, "fps": 7 },
+    { "type": "plague", "key": "plague", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/voidlings/webp/Plague_Mask_floating_gnxww7.webp", "name": "plague", "frameCount": 7, "fps": 8 },
+    { "type": "red", "key": "red", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/voidlings/webp/Red_Wraith_floating_teaw1o.webp", "name": "red", "frameCount": 7, "fps": 8 },
+    { "type": "fishScout", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/marine/webp/seahorse_r7gecs.webp", "name": "fishScout" },
+    { "type": "jellyBomber", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/marine/webp/octopus_ayaux4.webp", "name": "jellyBomber" },
+    { "type": "coralShooter", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/marine/webp/redfish_splpww.webp", "name": "coralShooter" },
+    { "type": "eliteWaterGuard", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/marine/webp/pirana_deoln3.webp", "name": "eliteWaterGuard" },
+    { "type": "coralHydra", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/enemies/marine/webp/crab_fqwtpr.webp", "name": "coralHydra" },
+    { "type": "iceTitan", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/boss/frost-boss/webp/ice_titan_walk_j7aean.webp", "name": "iceTitan" },
+    { "type": "crabBoss", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/boss/crab-boss/webp/crab_walk_rmpzrp.webp", "name": "crabBoss" },
+    { "type": "necroKing", "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/boss/witch-boss/webp/1-witch-walk_tp3hcw.webp", "name": "necroKing" }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "basePath": "/",
+  "items": [
+    {
+      "type": "coin",
+      "file": "https://ik.imagekit.io/6rsuaxauw/grok-image-f3ff8b55-c0fe-46fa-a0c7-fdbe20d61c6d%201%203.webp",
+      "name": "coin"
+    },
+    {
+      "type": "boss_flag",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/flags/flag1.webp",
+      "name": "boss_flag"
+    },
+    {
+      "type": "crate",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/box_ipbmif.webp",
+      "name": "crate"
+    },
+    {
+      "type": "rock",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/stone_dubacg.webp",
+      "name": "rock"
+    },
+    {
+      "type": "ice_crystal_cluster",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/gems_ugh2br.webp",
+      "name": "ice_crystal_cluster"
+    },
+    {
+      "type": "ice_sign_post",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/board_for_start_gco9ox.webp",
+      "name": "ice_sign_post"
+    },
+    {
+      "type": "ice_sign_arrow",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/board_before_boss_plo7ix.webp",
+      "name": "ice_sign_arrow"
+    },
+    {
+      "type": "ice_rock",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/stone_dubacg.webp",
+      "name": "ice_rock"
+    },
+    {
+      "type": "ice_snowman",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/snowman_hwbx2z.webp",
+      "name": "ice_snowman"
+    },
+    {
+      "type": "ice_tree",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/tree_lsy0pf.webp",
+      "name": "ice_tree"
+    },
+    {
+      "type": "ice_box_gift",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/box_gift_u5si2m.webp",
+      "name": "ice_box_gift"
+    },
+    {
+      "type": "ice_floor_below",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/floor_below_m2g5r9.webp",
+      "name": "ice_floor_below"
+    },
+    {
+      "type": "ice_floor_left",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/floor_left_cth9ft.webp",
+      "name": "ice_floor_left"
+    },
+    {
+      "type": "ice_floor_mid",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/floor_mid_u3z7ym.webp",
+      "name": "ice_floor_mid"
+    },
+    {
+      "type": "ice_floor_right",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/floor_right_je58yt.webp",
+      "name": "ice_floor_right"
+    },
+    {
+      "type": "ice_ice_box",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/ice_box_ek0qo7.webp",
+      "name": "ice_ice_box"
+    },
+    {
+      "type": "ice_spike_1",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/ice_spike_1_h87y2a.webp",
+      "name": "ice_spike_1"
+    },
+    {
+      "type": "ice_spike_2",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/ice_spike_2_e5i9lr.webp",
+      "name": "ice_spike_2"
+    },
+    {
+      "type": "ice_floor_spikes",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/floor_spikes_dmfhi6.webp",
+      "name": "ice_floor_spikes"
+    },
+    {
+      "type": "ice_platform_left",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/platform_left_cbtwgl.webp",
+      "name": "ice_platform_left"
+    },
+    {
+      "type": "ice_platform_mid",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/platform_mid_jyhcx3.webp",
+      "name": "ice_platform_mid"
+    },
+    {
+      "type": "ice_platform_right",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/platform_right_r9pmot.webp",
+      "name": "ice_platform_right"
+    },
+    {
+      "type": "ice_water_below",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/water_below_xpyqpp.webp",
+      "name": "ice_water_below"
+    },
+    {
+      "type": "ice_water_up",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/ice/tileset/webp/water_up_v69ws2.webp",
+      "name": "ice_water_up"
+    },
+    {
+      "type": "beach_shell",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/decorative-seashell1_elvahm.webp",
+      "name": "beach_shell"
+    },
+    {
+      "type": "beach_cactus",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/Cactus_1_zipafv.webp",
+      "name": "beach_cactus"
+    },
+    {
+      "type": "beach_coconut_tree",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/coconut_tree_afejm0.webp",
+      "name": "beach_coconut_tree"
+    },
+    {
+      "type": "grave_skull",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/obstacle_skull_f5ljyt.webp",
+      "name": "grave_skull"
+    },
+    {
+      "type": "grave_decorative_grave",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/decorative-grave_wnvzvh.webp",
+      "name": "grave_decorative_grave"
+    },
+    {
+      "type": "grave_decorative_grave_1",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/decorative-grave_1_wsqowh.webp",
+      "name": "grave_decorative_grave_1"
+    },
+    {
+      "type": "grave_gift_box",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/gift_box_kdsqrx.webp",
+      "name": "grave_gift_box"
+    },
+    {
+      "type": "grave_lava_up",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/lava_up_ppzypg.webp",
+      "name": "grave_lava_up"
+    },
+    {
+      "type": "grave_lava_down",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/graveyard/tileset/webp/lava_down_tgnurb.webp",
+      "name": "grave_lava_down"
+    },
+    {
+      "type": "gift_box",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/gift_box_mvg2ha.webp",
+      "name": "gift_box"
+    },
+    {
+      "type": "spikes",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/obstacle-spikes_jcdcih.webp",
+      "name": "spikes"
+    },
+    {
+      "type": "obstacle_spikes",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/obstacle-spikes_jcdcih.webp",
+      "name": "obstacle_spikes"
+    },
+    {
+      "type": "water_up",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/water-up_h3awmc.webp",
+      "name": "water_up"
+    },
+    {
+      "type": "water_down",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/water-down_bj34f0.webp",
+      "name": "water_down"
+    },
+    {
+      "type": "beach_decorative_sand_castle",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/decorative-sand-castle_hwhbst.webp",
+      "name": "beach_decorative_sand_castle"
+    },
+    {
+      "type": "beach_decorative_seashell",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/decorative-seashell_yrzymk.webp",
+      "name": "beach_decorative_seashell"
+    },
+    {
+      "type": "beach_decorative_seashell1",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/decorative-seashell1_elvahm.webp",
+      "name": "beach_decorative_seashell1"
+    },
+    {
+      "type": "beach_decorative_star",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/decorative-star_xk1jwl.webp",
+      "name": "beach_decorative_star"
+    },
+    {
+      "type": "beach_gift_box",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/gift_box_mvg2ha.webp",
+      "name": "beach_gift_box"
+    },
+    {
+      "type": "beach_ground_floor_down",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/ground-floor-down_tznt1t.webp",
+      "name": "beach_ground_floor_down"
+    },
+    {
+      "type": "beach_obstacle_barbed_wire",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/Obstacle-barbed-wire_yorpli.webp",
+      "name": "beach_obstacle_barbed_wire"
+    },
+    {
+      "type": "beach_obstacle_spikes",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/obstacle-spikes_jcdcih.webp",
+      "name": "beach_obstacle_spikes"
+    },
+    {
+      "type": "beach_platform_left",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/platform_left_tn3fca.webp",
+      "name": "beach_platform_left"
+    },
+    {
+      "type": "beach_platform_mid",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/platform_mid_jy3nlj.webp",
+      "name": "beach_platform_mid"
+    },
+    {
+      "type": "beach_platform_right",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/platform_right_l4ylwp.webp",
+      "name": "beach_platform_right"
+    },
+    {
+      "type": "beach_sand_bottom",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/sand_mid_gldeth.webp",
+      "name": "beach_sand_bottom"
+    },
+    {
+      "type": "beach_sand_mid",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/sand_mid_gldeth.webp",
+      "name": "beach_sand_mid"
+    },
+    {
+      "type": "beach_sand_side",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/ground-floor-up_kdpxhi.webp",
+      "name": "beach_sand_side"
+    },
+    {
+      "type": "beach_sand_top_left",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/ground-floor-down_tznt1t.webp",
+      "name": "beach_sand_top_left"
+    },
+    {
+      "type": "beach_sand_top_right",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/sand_top_right_jzzhqp.webp",
+      "name": "beach_sand_top_right"
+    },
+    {
+      "type": "beach_sand_top",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/water-up_h3awmc.webp",
+      "name": "beach_sand_top"
+    },
+    {
+      "type": "beach_spikes",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/obstacle-spikes_jcdcih.webp",
+      "name": "beach_spikes"
+    },
+    {
+      "type": "beach_water_down",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/water-down_bj34f0.webp",
+      "name": "beach_water_down"
+    },
+    {
+      "type": "beach_water_up",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/water-up_h3awmc.webp",
+      "name": "beach_water_up"
+    },
+    {
+      "type": "beach_wodden_mystery_box",
+      "file": "https://ik.imagekit.io/6rsuaxauw/axo-quest/axogame-assets/backgrounds/beach/tileset/webp/box_vexzd7.webp",
+      "name": "beach_wodden_mystery_box"
+    }
+  ]
+}

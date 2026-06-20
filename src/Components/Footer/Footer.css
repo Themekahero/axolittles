@@ -1,0 +1,312 @@
+.lower-foot {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  /* min-height: clamp(640px, 46vw, 1480px); */
+}
+
+#svgFoot,
+#footerAnimation {
+  line-height: 0;
+}
+
+#svgFoot {
+  position: relative;
+  z-index: 0;
+}
+.site-footer__brand-image-logo {
+  border: none;
+  background-color: transparent;
+}
+#svgFoot svg,
+#footerAnimation svg {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #fff6fb 0%, #eef8ff 55%, #e7f8ee 100%);
+}
+.site-footer__eyebrow-img {
+  width: 30%;
+}
+
+.site-footer__top-wave,
+.site-footer__bottom-wave {
+  line-height: 0;
+}
+
+.site-footer__top-wave svg,
+.site-footer__bottom-wave svg {
+  display: block;
+  width: 100%;
+}
+
+.site-footer__body {
+  position: relative;
+  min-height: 500px;
+  margin-top: 0;
+  min-width: 60%;
+}
+
+.site-footer__content {
+  position: relative;
+  z-index: 1;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 6rem 1.5rem 1rem;
+}
+
+.site-footer__brand {
+  max-width: 100%;
+}
+
+.site-footer__eyebrow {
+  margin: 0 0 0.8rem;
+  font-family: var(--brand-font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-sky-deep);
+}
+
+.site-footer__brand h2 {
+  margin: 0;
+  font-family: var(--brand-font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 5vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--brand-pink);
+  -webkit-text-stroke: 0;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.6);
+}
+
+.site-footer__copy {
+  margin: 1.1rem auto 0;
+  max-width: 38ch;
+  color: var(--brand-ink);
+  font-family: var(--brand-font-body);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.site-footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.site-footer__social {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: var(--soc-bg, #ff6fb5);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2rem;
+  box-shadow: 0 7px 0 var(--soc-sh, #db3d8f);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+/* Candy-coloured social row (Instagram · YouTube · X) */
+.site-footer__social:nth-child(1) { --soc-bg: #ff6fb5; --soc-sh: #db3d8f; }
+.site-footer__social:nth-child(2) { --soc-bg: #ff5a5f; --soc-sh: #d8383d; }
+.site-footer__social:nth-child(3) { --soc-bg: #3b2f5e; --soc-sh: #241a40; }
+
+.site-footer__social span {
+  font-family: var(--brand-font-display);
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.site-footer__social:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 0 var(--soc-sh, #db3d8f);
+}
+.site-footer__social:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--soc-sh, #db3d8f);
+}
+
+.site-footer__nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(1040px, 100%);
+  margin-top: 1rem;
+}
+
+.site-footer__nav-column {
+  padding: 1rem;
+  border: 1px solid rgba(59, 47, 94, 0.12);
+  border-radius: var(--brand-radius);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.site-footer__nav-title {
+  margin: 0 0 0.75rem;
+  color: var(--brand-ink);
+  font-family: var(--brand-font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-footer__nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.site-footer__nav-links a {
+  color: var(--brand-ink);
+  text-decoration: none;
+  font-family: var(--brand-font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    letter-spacing 180ms ease;
+  transform: translateX(0);
+  display: inline-flex;
+  width: fit-content;
+}
+
+.site-footer__nav-links a:hover,
+.site-footer__nav-links a:focus-visible {
+  color: var(--brand-sky-deep);
+  transform: translateX(4px);
+  letter-spacing: 0.01em;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0px;
+  margin-top: 2rem;
+  gap: 1.6rem;
+}
+
+.site-footer__nav a {
+  color: var(--brand-ink);
+  text-decoration: none;
+  font-family: var(--brand-font-body);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.site-footer__legal {
+  margin: 0;
+  color: var(--brand-ink-soft);
+  font-family: var(--brand-font-body);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.site-footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 1.1rem;
+}
+
+.site-footer__legal-links a {
+  color: var(--brand-ink-soft);
+  text-decoration: none;
+  font-family: var(--brand-font-body);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+@media (max-width: 767px) {
+  .lower-foot {
+    /* min-height: 760px; */
+  }
+
+  .site-footer__body,
+  .site-footer__content {
+    min-height: 440px;
+  }
+
+  .site-footer__content {
+    padding: 7rem 1rem 6rem;
+  }
+
+  .site-footer__social {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  .site-footer__socials img {
+    width: 25px !important;
+  }
+
+  .site-footer__nav {
+    gap: 1rem 1.25rem;
+  }
+  .site-footer__nav-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .team-card__content h3,
+  .roadmap-quarter-card h3,
+  .roadmap-quarter-item h4 {
+    font-size: 20px;
+  }
+  .site-footer__nav a,
+  .roadmap-quarter-card__pill,
+  .team-card__content p,
+  .legend-pill {
+    font-size: 0.9rem;
+  }
+  .site-footer__eyebrow-img {
+    width: 60%;
+  }
+
+  .site-footer__legal-links a {
+    font-size: 0.86rem;
+  }
+}
+.lower-foot--alt-bg #svgFoot {
+  background-color: #f5fbfe;
+}
+
+.lower-foot--game-bg #svgFoot {
+  background-color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .site-footer {
+    margin-top: 0;
+  }
+}
+.footer-bot-footerr {
+  position: absolute;
+  bottom: 0;
+}
+.axo-face-logo-footer-images {
+  width: 100px;
+}
