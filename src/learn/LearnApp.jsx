@@ -8,7 +8,7 @@
 import React from "react";
 import AxoData from "./data";
 import AxoAudio from "./audio";
-import { Scenery, isStickerUnlocked } from "./ui";
+import { Scenery, BottomNav, isStickerUnlocked } from "./ui";
 import { HomeScreen, LearnScreen, VoicePicker } from "./screens/HomeHub";
 import { LessonScreen, CelebrateScreen } from "./screens/LessonScreen";
 import { ChallengeGame } from "./screens/ChallengeGame";
@@ -300,6 +300,11 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
     onSettings: () => { AxoAudio.stopSpeaking(); onNavigate("/parents"); },
   };
 
+  // The bottom nav is rendered once at the shell level (outside the scaled
+  // stage) so it stays 1:1 and full-width — identical to the games/adventure
+  // bar. It shows only on the hub-style screens; `active` highlights the pill.
+  const navActive = { home: "home", learn: "learn", worldhub: "learn", videos: "videos", rewards: "trophies" }[screen];
+
   // Theme: hub + world-grid use the default day sky; worlds bring their own.
   const onHubScreen =
     screen === "home" || screen === "rewards" || screen === "learn" || screen === "videos";
@@ -336,7 +341,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               onOpenAdventure={() => { AxoAudio.playTone("pop"); AxoAudio.stopSpeaking(); onNavigate("/adventure"); }}
               onOpenLearn={() => { AxoAudio.playTone("pop"); setScreen("learn"); }}
               onOpenShop={openShop}
-              nav={bottomNav}
             />
           ) : null}
 
@@ -346,7 +350,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               onOpenWorld={openWorld}
               onOpenVideos={() => { AxoAudio.playTone("pop"); setScreen("videos"); }}
               onHome={() => setScreen("home")}
-              nav={bottomNav}
             />
           ) : null}
 
@@ -355,12 +358,11 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               progress={progress}
               characterId={characterId}
               onHome={() => setScreen("home")}
-              nav={bottomNav}
             />
           ) : null}
 
           {screen === "videos" ? (
-            <VideoRoom onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} nav={bottomNav} />
+            <VideoRoom onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} />
           ) : null}
 
           {screen === "lesson" ? (
@@ -400,7 +402,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               onFindIt={() => { AxoAudio.stopSpeaking(); setScreen("findit"); }}
               onChallenge={() => { AxoAudio.stopSpeaking(); setScreen("challenge"); }}
               onHome={() => { AxoAudio.stopSpeaking(); setScreen("learn"); }}
-              nav={bottomNav}
             />
           ) : null}
 
@@ -448,6 +449,10 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
           ) : null}
         </div>
       </div>
+
+      {/* Bottom nav — lives outside the scaled stage so it renders 1:1 and full
+          width, exactly like the games/adventure frame. */}
+      {navActive ? <BottomNav nav={bottomNav} active={navActive} /> : null}
 
       {/* Soft background music — only plays when a grown-up enabled it. */}
       <audio ref={musicRef} src="/bg-song.mp3" loop preload="none" />

@@ -8,7 +8,7 @@
 // Individual songs and "Play all" both embed via youtube-nocookie with rel=0,
 // so when a song ends YouTube only ever surfaces other Axo Rhymes videos.
 import React from "react";
-import { Icon, BottomNav } from "../ui";
+import { Icon } from "../ui";
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
@@ -16,7 +16,7 @@ const AXO_LOGO_SRC = "/axo-logo.svg";
 const EMBED_BASE = "https://www.youtube-nocookie.com/embed";
 const COMMON_PARAMS = "autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3";
 
-function VideoRoom({ onHome, nav }) {
+function VideoRoom({ onHome }) {
   const [playing, setPlaying] = React.useState(null); // { yt, title } | { playlist, title }
   const [allVideos, setAllVideos] = React.useState(null); // full catalog from /rhymes.json
 
@@ -112,8 +112,6 @@ function VideoRoom({ onHome, nav }) {
           ))}
         </div>
       )}
-
-      {nav ? <BottomNav nav={nav} active="videos"></BottomNav> : null}
 
       {playing ? (
         <div className="overlay" onClick={() => setPlaying(null)}>

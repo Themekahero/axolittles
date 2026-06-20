@@ -1,6 +1,6 @@
 // AxoLearn v2 — Home screen, Learn screen, voice picker
 import React from "react";
-import { Icon, StarIcon, CharFace, StickerGlyph, ShapeArt, BottomNav, totalStars, levelFor, isStickerUnlocked } from "../ui";
+import { Icon, StarIcon, CharFace, StickerGlyph, ShapeArt, totalStars, levelFor, isStickerUnlocked } from "../ui";
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
@@ -65,7 +65,7 @@ function WorldGrid({ progress, onOpenWorld, onOpenVideos }) {
 }
 
 /* ── Learn screen: all 12 worlds ─────────────────────────────────── */
-function LearnScreen({ progress, onOpenWorld, onOpenVideos, onHome, nav }) {
+function LearnScreen({ progress, onOpenWorld, onOpenVideos, onHome }) {
   return (
     <React.Fragment>
       <button className="btn3d btn-round home-btn" onClick={onHome} aria-label="Go home">
@@ -78,12 +78,11 @@ function LearnScreen({ progress, onOpenWorld, onOpenVideos, onHome, nav }) {
         </div>
       </div>
       <WorldGrid progress={progress} onOpenWorld={onOpenWorld} onOpenVideos={onOpenVideos}></WorldGrid>
-      {nav ? <BottomNav nav={nav} active="learn"></BottomNav> : null}
     </React.Fragment>
   );
 }
 
-function HomeScreen({ progress, onOpenWorld, onOpenVideos, characterId, onOpenVoices, onOpenParents, onOpenRewards, onOpenGames, onOpenAdventure, onOpenLearn, onOpenShop, nav }) {
+function HomeScreen({ progress, onOpenWorld, onOpenVideos, characterId, onOpenVoices, onOpenParents, onOpenRewards, onOpenGames, onOpenAdventure, onOpenLearn, onOpenShop }) {
   const stars = totalStars(progress);
   const level = levelFor(stars);
   const streak = progress.streak?.count ?? 0;
@@ -166,8 +165,6 @@ function HomeScreen({ progress, onOpenWorld, onOpenVideos, characterId, onOpenVo
           ))}
         </div>
       </div>
-
-      <BottomNav nav={nav} active="home"></BottomNav>
     </React.Fragment>
   );
 }

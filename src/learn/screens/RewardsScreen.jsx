@@ -1,10 +1,10 @@
 // AxoLearn v2 — Rewards screen: stats, daily goal, sticker collection
 import React from "react";
-import { StickerGlyph, StarIcon, Icon, Confetti, BottomNav, totalStars, levelFor, isStickerUnlocked } from "../ui";
+import { StickerGlyph, StarIcon, Icon, Confetti, totalStars, levelFor, isStickerUnlocked } from "../ui";
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
-function RewardsScreen({ progress, characterId, onHome, nav }) {
+function RewardsScreen({ progress, characterId, onHome }) {
   const stars = totalStars(progress);
   const level = levelFor(stars);
   const streak = progress.streak?.count ?? 0;
@@ -88,7 +88,6 @@ function RewardsScreen({ progress, characterId, onHome, nav }) {
           ))}
         </div>
       </div>
-      {nav ? <BottomNav nav={nav} active="trophies"></BottomNav> : null}
     </React.Fragment>
   );
 }

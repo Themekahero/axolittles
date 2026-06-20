@@ -35,6 +35,12 @@
   inset: 0;
   overflow: hidden;
   z-index: 1;
+  /* Flex column: the scaled stage fills the top, the bottom nav sits below it
+     at 1:1 (full width, never scaled) — structurally identical to the
+     games/adventure GameFrame so every section's bottom bar looks the same. */
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
 }
 
 /* ── Immersive overlays: rotate hint, break, shop gate ── */
@@ -72,7 +78,7 @@
 
 /* ── Stage scaling: fixed 1280×800 canvas, scaled to any viewport ────────── */
 .axo-learn .stage-wrap {
-  position: absolute; inset: 0;
+  flex: 1 1 auto; min-height: 0; position: relative;
   display: grid; place-items: start center;
   background: linear-gradient(180deg, var(--sky-high) 0%, var(--sky) 60%, var(--ground) 100%);
   transition: background 600ms ease;
@@ -188,7 +194,7 @@
    frame, pinned full-width to the bottom of the stage so every section's
    bottom menu looks identical. */
 .axo-learn .app-bottom-nav {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 30;
+  flex: 0 0 auto; z-index: 30;
 }
 .axo-learn .mini-stat {
   display: inline-flex; align-items: center; gap: 7px;

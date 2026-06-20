@@ -4,7 +4,7 @@
 // are dimmed but still tappable — tapping one speaks a warm nudge instead of
 // being a dead wall (per the ages-2-5 design review).
 import React from "react";
-import { Icon, StarIcon, StickerGlyph, BottomNav } from "../ui";
+import { Icon, StarIcon, StickerGlyph } from "../ui";
 import AxoAudio from "../audio";
 import { challenges, findUnlockThreshold } from "../challengeData";
 
@@ -45,7 +45,7 @@ function LevelCard({ n, color, icon, title, sub, locked, done, onOpen, nudge, co
   );
 }
 
-function WorldHub({ world, progress, onLearn, onFindIt, onChallenge, onHome, nav }) {
+function WorldHub({ world, progress, onLearn, onFindIt, onChallenge, onHome }) {
   const cfg = challenges[world.id] || {};
   const total = world.lessons.length;
   const learnDone = Object.keys(progress.completed?.[world.id] ?? {}).length;
@@ -117,8 +117,6 @@ function WorldHub({ world, progress, onLearn, onFindIt, onChallenge, onHome, nav
             : "Finish all three to master this world"}
         </span>
       </div>
-
-      {nav ? <BottomNav nav={nav} active="learn"></BottomNav> : null}
     </React.Fragment>
   );
 }
