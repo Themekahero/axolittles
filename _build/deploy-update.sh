@@ -1,27 +1,24 @@
 #!/usr/bin/env bash
-# Places the freshly-rsynced build and enables gzip for JS/CSS (the big perf win).
+# Places the freshly-rsynced build behind nginx.
+#
+# NOTE: gzip is NOT configured here. The box's main /etc/nginx/nginx.conf already
+# has `gzip on` + gzip_types for JS/CSS/JSON globally, so writing a conf.d gzip
+# file duplicated `gzip on;` and broke `nginx -t`. Compression is handled by the
+# main conf — verified below.
 set -euo pipefail
 
 # IMPORTANT: exclude server-maintained assets that don't ship in the build —
 #   rhymes.json : the YouTube catalog refreshed by the refresh-rhymes cron
-#   audio/      : the pre-recorded same-origin voice clips (172+ m4a + manifest)
+#   audio/      : the pre-recorded same-origin voice clips (175 m4a + manifest)
 # Without these excludes, --delete wipes them on every deploy.
 sudo rsync -a --delete --exclude='rhymes.json' --exclude='audio' /tmp/axo-dist/ /srv/dapp/axolittles/dist/
-
-# Enable gzip for application assets (global; merges with http{} defaults).
-sudo tee /etc/nginx/conf.d/axo-gzip.conf >/dev/null <<'GZIP'
-gzip on;
-gzip_vary on;
-gzip_comp_level 6;
-gzip_min_length 1024;
-gzip_proxied any;
-gzip_types text/plain text/css application/javascript application/json image/svg+xml application/xml application/xml+rss;
-GZIP
+sudo chown -R www-data:www-data /srv/dapp/axolittles/dist 2>/dev/null || true
 
 sudo nginx -t
 sudo systemctl reload nginx
-echo "DEPLOYED + GZIP"
-# verify compression on the JS asset
+echo "DEPLOYED"
+
+# verify the new build is served + compressed
 JS=$(ls -1 /srv/dapp/axolittles/dist/assets/*.js | head -1 | sed 's#.*/dist##')
 echo "checking $JS"
-curl -sI -H 'Accept-Encoding: gzip,br' "https://axolittles.cterminal.xyz${JS}" | grep -iE 'content-encoding|content-length' || true
+curl -sI -H 'Accept-Encoding: gzip' "https://axolittles.io${JS}" | grep -iE 'content-encoding|content-type' || true
