@@ -45,7 +45,7 @@ function LevelCard({ n, color, icon, title, sub, locked, done, onOpen, nudge, co
   );
 }
 
-function WorldHub({ world, progress, onLearn, onFindIt, onChallenge, onHome }) {
+function WorldHub({ world, progress, onLearn, onFindIt, onChallenge }) {
   const cfg = challenges[world.id] || {};
   const total = world.lessons.length;
   const learnDone = Object.keys(progress.completed?.[world.id] ?? {}).length;
@@ -65,14 +65,6 @@ function WorldHub({ world, progress, onLearn, onFindIt, onChallenge, onHome }) {
 
   return (
     <React.Fragment>
-      <button className="btn3d btn-round home-btn" onClick={onHome} aria-label="Back to all worlds">
-        <Icon name="arrowLeft" fill="#3b2f5e"></Icon>
-      </button>
-
-      <div className="top-bar" style={{ justifyContent: "center" }}>
-        <div className="brand">{world.title}</div>
-      </div>
-
       <div className="level-grid">
         <LevelCard
           n="1"

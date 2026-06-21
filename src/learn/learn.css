@@ -35,12 +35,6 @@
   inset: 0;
   overflow: hidden;
   z-index: 1;
-  /* Flex column: the scaled stage fills the top, the bottom nav sits below it
-     at 1:1 (full width, never scaled) — structurally identical to the
-     games/adventure GameFrame so every section's bottom bar looks the same. */
-  display: flex;
-  flex-direction: column;
-  background: var(--ground);
 }
 
 /* ── Immersive overlays: rotate hint, break, shop gate ── */
@@ -78,7 +72,7 @@
 
 /* ── Stage scaling: fixed 1280×800 canvas, scaled to any viewport ────────── */
 .axo-learn .stage-wrap {
-  flex: 1 1 auto; min-height: 0; position: relative;
+  position: absolute; inset: 0;
   display: grid; place-items: start center;
   background: linear-gradient(180deg, var(--sky-high) 0%, var(--sky) 60%, var(--ground) 100%);
   transition: background 600ms ease;
@@ -194,8 +188,25 @@
    frame, pinned full-width to the bottom of the stage so every section's
    bottom menu looks identical. */
 .axo-learn .app-bottom-nav {
-  flex: 0 0 auto; z-index: 30;
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 30;
 }
+/* Shell-level TOP bar (1:1, outside the scaled stage) — overlays the top of the
+   stage just like the bottom nav overlays the bottom. Same `.game-frame__bar`
+   chrome as games/adventure; Home's stats/voice/gear are compacted to fit. */
+.axo-learn .app-top-bar { position: absolute; top: 0; left: 0; right: 0; z-index: 30; }
+/* `.axo-learn button { padding:0; background:none }` (higher specificity) would
+   strip the shared Home button's pill — restore it so the back button is the
+   exact same pill as on the games/adventure bar (and the bar is the same 60px). */
+.axo-learn .app-top-bar .game-frame__back { padding: 9px 18px 11px; background: #fff; color: #3b2f5e; }
+.axo-learn .app-top-bar .stat-cluster { gap: 6px; }
+.axo-learn .app-top-bar .mini-stat { height: 40px; font-size: 17px; padding: 0 12px; gap: 6px; }
+.axo-learn .app-top-bar .mini-stat svg { width: 19px; height: 19px; }
+.axo-learn .app-top-bar .mini-stat .mini-ico { width: 23px; height: 23px; }
+.axo-learn .app-top-bar .mini-stat .mini-ico svg { width: 13px; height: 13px; }
+.axo-learn .app-top-bar .voice-btn { width: 40px; height: 40px; padding: 3px; }
+.axo-learn .app-top-bar .voice-btn .listen-tag { display: none; }
+.axo-learn .app-top-bar .top-gear { width: 40px; height: 40px; }
+.axo-learn .app-top-bar .top-gear svg { width: 44%; height: 44%; }
 .axo-learn .mini-stat {
   display: inline-flex; align-items: center; gap: 7px;
   background: var(--paper); color: var(--ink);

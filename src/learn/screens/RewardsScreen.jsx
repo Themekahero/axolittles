@@ -4,7 +4,7 @@ import { StickerGlyph, StarIcon, Icon, Confetti, totalStars, levelFor, isSticker
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
-function RewardsScreen({ progress, characterId, onHome }) {
+function RewardsScreen({ progress, characterId }) {
   const stars = totalStars(progress);
   const level = levelFor(stars);
   const streak = progress.streak?.count ?? 0;
@@ -14,23 +14,8 @@ function RewardsScreen({ progress, characterId, onHome }) {
   const stickers = AxoData.stickers.map((s) => ({ ...s, unlocked: isStickerUnlocked(s, progress) }));
   const unlockedCount = stickers.filter((s) => s.unlocked).length;
 
-  function sayCharacter() {
-    AxoAudio.playTone("chime");
-  }
-
   return (
     <React.Fragment>
-      <button className="btn3d btn-round home-btn" onClick={onHome} aria-label="Go home">
-        <Icon name="home" fill="#3b2f5e"></Icon>
-      </button>
-
-      <div className="top-bar" style={{ justifyContent: "center" }}>
-        <div className="brand">
-          <span className="brand-trophy"><StickerGlyph name="trophy"></StickerGlyph></span>
-          My Trophies
-        </div>
-      </div>
-
       <div className="rewards-body">
         <div className="stat-row">
           <div className="stat-card" style={{ "--c": "#f59e0b" }}>

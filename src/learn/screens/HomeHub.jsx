@@ -1,6 +1,6 @@
 // AxoLearn v2 — Home screen, Learn screen, voice picker
 import React from "react";
-import { Icon, StarIcon, CharFace, StickerGlyph, ShapeArt, totalStars, levelFor, isStickerUnlocked } from "../ui";
+import { Icon, StarIcon, CharFace, StickerGlyph, ShapeArt, isStickerUnlocked } from "../ui";
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
@@ -65,28 +65,15 @@ function WorldGrid({ progress, onOpenWorld, onOpenVideos }) {
 }
 
 /* ── Learn screen: all 12 worlds ─────────────────────────────────── */
-function LearnScreen({ progress, onOpenWorld, onOpenVideos, onHome }) {
+function LearnScreen({ progress, onOpenWorld, onOpenVideos }) {
   return (
     <React.Fragment>
-      <button className="btn3d btn-round home-btn" onClick={onHome} aria-label="Go home">
-        <Icon name="home" fill="#3b2f5e"></Icon>
-      </button>
-      <div className="top-bar" style={{ justifyContent: "center" }}>
-        <div className="brand">
-          <Icon name="book" fill="#fff"></Icon>
-          Learn
-        </div>
-      </div>
       <WorldGrid progress={progress} onOpenWorld={onOpenWorld} onOpenVideos={onOpenVideos}></WorldGrid>
     </React.Fragment>
   );
 }
 
-function HomeScreen({ progress, onOpenWorld, onOpenVideos, characterId, onOpenVoices, onOpenParents, onOpenRewards, onOpenGames, onOpenAdventure, onOpenLearn, onOpenShop }) {
-  const stars = totalStars(progress);
-  const level = levelFor(stars);
-  const streak = progress.streak?.count ?? 0;
-  const char = AxoAudio.getCharacter(characterId);
+function HomeScreen({ progress, onOpenVideos, characterId, onOpenRewards, onOpenGames, onOpenAdventure, onOpenLearn, onOpenShop }) {
   const stickersWon = AxoData.stickers.filter((s) => isStickerUnlocked(s, progress)).length;
 
   const features = [
@@ -106,37 +93,6 @@ function HomeScreen({ progress, onOpenWorld, onOpenVideos, characterId, onOpenVo
 
   return (
     <React.Fragment>
-      <div className="top-bar">
-        <div className="brand">
-          <img className="brand-logo" src={AXO_LOGO_SRC} alt=""></img>
-          Axolittles
-        </div>
-        <div className="spacer"></div>
-        <button className="stat-cluster" onClick={() => { AxoAudio.playTone("chime"); onOpenRewards(); }} aria-label="My Trophies">
-          <span className="mini-stat" style={{ "--c": "#f59e0b" }}>
-            <StarIcon></StarIcon>{stars}
-          </span>
-          <span className="mini-stat" style={{ "--c": "#ef4444" }}>
-            <span className="mini-ico"><StickerGlyph name="fire"></StickerGlyph></span>{streak}
-          </span>
-          <span className="mini-stat" style={{ "--c": "#7c3aed" }}>
-            <span className="mini-ico"><StickerGlyph name="trophy"></StickerGlyph></span>Lv {level}
-          </span>
-        </button>
-        <button className="btn3d voice-btn" onClick={onOpenVoices} aria-label="Choose your teacher voice">
-          <CharFace kind={char.kind}></CharFace>
-          <span className="listen-tag">Voice</span>
-        </button>
-        <button
-          className="btn3d btn-round"
-          style={{ width: 64, height: 64 }}
-          onClick={() => { AxoAudio.playTone("pop"); onOpenParents(); }}
-          aria-label="Grown-ups"
-        >
-          <Icon name="gear" fill="#3b2f5e"></Icon>
-        </button>
-      </div>
-
       <div className="hero-row">
         <div className="hero-left">
           <video className="hero-mascot" src={AxoData.teacherAxoVideo} autoPlay loop muted playsInline></video>

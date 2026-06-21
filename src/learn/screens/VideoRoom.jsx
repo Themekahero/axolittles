@@ -12,11 +12,10 @@ import { Icon } from "../ui";
 import AxoData from "../data";
 import AxoAudio from "../audio";
 
-const AXO_LOGO_SRC = "/axo-logo.svg";
 const EMBED_BASE = "https://www.youtube-nocookie.com/embed";
 const COMMON_PARAMS = "autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3";
 
-function VideoRoom({ onHome }) {
+function VideoRoom() {
   const [playing, setPlaying] = React.useState(null); // { yt, title } | { playlist, title }
   const [allVideos, setAllVideos] = React.useState(null); // full catalog from /rhymes.json
 
@@ -63,17 +62,6 @@ function VideoRoom({ onHome }) {
 
   return (
     <React.Fragment>
-      <button className="btn3d btn-round home-btn" onClick={onHome} aria-label="Go home">
-        <Icon name="home" fill="#3b2f5e"></Icon>
-      </button>
-
-      <div className="top-bar" style={{ justifyContent: "center" }}>
-        <div className="brand">
-          <img className="brand-logo" src={AXO_LOGO_SRC} alt=""></img>
-          Axo Rhymes
-        </div>
-      </div>
-
       <div className="rhymes-playall-row">
         <button
           className="btn3d btn-gold rhymes-playall"

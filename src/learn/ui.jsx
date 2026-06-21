@@ -694,4 +694,28 @@ function BottomNav({ nav = {}, active }) {
   );
 }
 
-export { Icon, StarIcon, CharFace, ShapeArt, StickerGlyph, ShapeFace, Scenery, Mascot, StarBurst, Confetti, TapHint, ProgressPath, BottomNav, totalStars, lessonsDone, worldComplete, levelFor, isStickerUnlocked, findLevelsDone, challengeLevelsDone };
+/* Shared section TOP bar — same `.game-frame__bar` chrome as the games/adventure
+   frame, so all five sections' top menus look identical. Rendered 1:1 OUTSIDE
+   the scaled stage (like BottomNav). `onHome` shows the left Home button;
+   `title` sits next to the logo; `children` fill the right slot (Home puts its
+   stars/voice/gear there; other sections leave it empty). */
+function SectionTopBar({ onHome, homeLabel = "Home", title, className = "", children }) {
+  return (
+    <div className={"game-frame__bar" + (className ? " " + className : "")} role="banner">
+      {onHome ? (
+        <button className="game-frame__back" onClick={onHome} aria-label={homeLabel}>
+          <i className="fa-solid fa-house" aria-hidden="true"></i>
+          {homeLabel}
+        </button>
+      ) : null}
+      <span className="game-frame__title">
+        <img src="/axo-logo.svg" alt="" />
+        {title}
+      </span>
+      <span className="game-frame__spacer" />
+      {children}
+    </div>
+  );
+}
+
+export { Icon, StarIcon, CharFace, ShapeArt, StickerGlyph, ShapeFace, Scenery, Mascot, StarBurst, Confetti, TapHint, ProgressPath, BottomNav, SectionTopBar, totalStars, lessonsDone, worldComplete, levelFor, isStickerUnlocked, findLevelsDone, challengeLevelsDone };

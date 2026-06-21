@@ -8,7 +8,7 @@
 import React from "react";
 import AxoData from "./data";
 import AxoAudio from "./audio";
-import { Scenery, BottomNav, isStickerUnlocked } from "./ui";
+import { Scenery, BottomNav, SectionTopBar, Icon, StarIcon, StickerGlyph, CharFace, isStickerUnlocked, totalStars, levelFor } from "./ui";
 import { HomeScreen, LearnScreen, VoicePicker } from "./screens/HomeHub";
 import { LessonScreen, CelebrateScreen } from "./screens/LessonScreen";
 import { ChallengeGame } from "./screens/ChallengeGame";
@@ -169,7 +169,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
       }
     }, 5000);
     return () => window.clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [breakTime, settings.playLimitMin]);
 
   // Shop entry from a kid zone — gate it when a grown-up requires approval.
@@ -193,7 +192,7 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
   React.useEffect(() => {
     try {
       sessionStorage.setItem(NAV_KEY, JSON.stringify({ initialScreen, screen, worldId, lessonIndex }));
-    } catch (e) { /* ignore */ }
+    } catch { /* ignore */ }
   }, [initialScreen, screen, worldId, lessonIndex]);
 
   const world = AxoData.worldMap[worldId] ?? AxoData.worlds[0];
@@ -305,6 +304,41 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
   // bar. It shows only on the hub-style screens; `active` highlights the pill.
   const navActive = { home: "home", learn: "learn", worldhub: "learn", videos: "videos", rewards: "trophies" }[screen];
 
+  // The top bar is also rendered once at the shell level (outside the scaled
+  // stage), so all five sections' top menus match the games/adventure bar
+  // exactly. Each hub screen supplies its own title / Home button / right slot.
+  const char = AxoAudio.getCharacter(characterId);
+  const stars = totalStars(progress);
+  const level = levelFor(stars);
+  const streak = progress.streak?.count ?? 0;
+  let topBar = null;
+  if (screen === "home") {
+    topBar = (
+      <SectionTopBar className="app-top-bar" title="Axolittles">
+        <button className="stat-cluster" onClick={() => { AxoAudio.playTone("chime"); setScreen("rewards"); }} aria-label="My Trophies">
+          <span className="mini-stat" style={{ "--c": "#f59e0b" }}><StarIcon />{stars}</span>
+          <span className="mini-stat" style={{ "--c": "#ef4444" }}><span className="mini-ico"><StickerGlyph name="fire" /></span>{streak}</span>
+          <span className="mini-stat" style={{ "--c": "#7c3aed" }}><span className="mini-ico"><StickerGlyph name="trophy" /></span>Lv {level}</span>
+        </button>
+        <button className="btn3d voice-btn" onClick={() => setShowVoices(true)} aria-label="Choose your teacher voice">
+          <CharFace kind={char.kind} />
+          <span className="listen-tag">Voice</span>
+        </button>
+        <button className="btn3d btn-round top-gear" onClick={() => { AxoAudio.playTone("pop"); AxoAudio.stopSpeaking(); onNavigate("/parents"); }} aria-label="Grown-ups">
+          <Icon name="gear" fill="#3b2f5e" />
+        </button>
+      </SectionTopBar>
+    );
+  } else if (screen === "learn") {
+    topBar = <SectionTopBar className="app-top-bar" onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} title="Learn" />;
+  } else if (screen === "videos") {
+    topBar = <SectionTopBar className="app-top-bar" onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} title="Axo Rhymes" />;
+  } else if (screen === "worldhub") {
+    topBar = <SectionTopBar className="app-top-bar" onHome={() => { AxoAudio.stopSpeaking(); setScreen("learn"); }} title={world.title} />;
+  } else if (screen === "rewards") {
+    topBar = <SectionTopBar className="app-top-bar" onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} title="Trophies" />;
+  }
+
   // Theme: hub + world-grid use the default day sky; worlds bring their own.
   const onHubScreen =
     screen === "home" || screen === "rewards" || screen === "learn" || screen === "videos";
@@ -324,6 +358,8 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
       style={{ ...themeVars, "--object-scale": 1 }}
       data-screen-label={["lesson", "worldhub", "findit", "challenge"].includes(screen) ? world.title : screen}
     >
+      {topBar}
+
       <div className="stage-wrap">
         <div className="stage" style={{ transform: `scale(${scale})`, "--stage-scale": scale }}>
           <Scenery night={night} />
@@ -332,10 +368,7 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
             <HomeScreen
               progress={progress}
               characterId={characterId}
-              onOpenWorld={openWorld}
               onOpenVideos={() => { AxoAudio.playTone("pop"); setScreen("videos"); }}
-              onOpenVoices={() => setShowVoices(true)}
-              onOpenParents={() => { AxoAudio.stopSpeaking(); onNavigate("/parents"); }}
               onOpenRewards={() => { AxoAudio.playTone("pop"); setScreen("rewards"); }}
               onOpenGames={() => { AxoAudio.playTone("pop"); AxoAudio.stopSpeaking(); onNavigate("/games"); }}
               onOpenAdventure={() => { AxoAudio.playTone("pop"); AxoAudio.stopSpeaking(); onNavigate("/adventure"); }}
@@ -349,7 +382,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               progress={progress}
               onOpenWorld={openWorld}
               onOpenVideos={() => { AxoAudio.playTone("pop"); setScreen("videos"); }}
-              onHome={() => setScreen("home")}
             />
           ) : null}
 
@@ -357,12 +389,11 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
             <RewardsScreen
               progress={progress}
               characterId={characterId}
-              onHome={() => setScreen("home")}
             />
           ) : null}
 
           {screen === "videos" ? (
-            <VideoRoom onHome={() => { AxoAudio.stopSpeaking(); setScreen("home"); }} />
+            <VideoRoom />
           ) : null}
 
           {screen === "lesson" ? (
@@ -401,7 +432,6 @@ export default function LearnApp({ onNavigate = () => {}, initialScreen = "home"
               onLearn={openLesson}
               onFindIt={() => { AxoAudio.stopSpeaking(); setScreen("findit"); }}
               onChallenge={() => { AxoAudio.stopSpeaking(); setScreen("challenge"); }}
-              onHome={() => { AxoAudio.stopSpeaking(); setScreen("learn"); }}
             />
           ) : null}
 
